@@ -1,0 +1,72 @@
+import java.util.TreeSet;
+
+public class MainSetUse {
+    public static void main(String[] args) {
+String s = "performance";
+printOriginalChars(s);
+        String s2 = "apple kiwi banana melon grape apple lemon cherry melon";
+        printWorldReverseOrder(s2);
+    }
+    public static void printWorldReverseOrder(String s){
+        TreeSet<String> set = new TreeSet<>();
+        String[] ar = s.split(" ");
+        for (String st: ar){
+            set.add(st);
+        }
+        Object[] arr = set.toArray();
+        for (int i = arr.length-1;i>=0;i--){
+            System.out.println(arr[i]);
+
+        }
+    }
+    /*
+    s = "apple kiwi banana melon grape apple lemon cherry melon"
+    s.split(" ");
+        0    1     2       3       4              8
+    ar -> [apple][kiwi][banana][melon][grape][......][melon]
+                                                   --i
+             0      1       2       3     4      5      6
+    arr-> [apple][banana][cherry][grape][kiwi][lemon][melon]
+     melon
+     lemon
+     kiwi
+     grape
+     cherry
+     banana
+     apple
+     */
+    public static void printOriginalChars(String s){
+        TreeSet<Character> set = new TreeSet<>();
+        for (int i = 0; i < s.length();i ++){
+            char sym = s.charAt(i);
+            set.add(sym);
+
+
+        }
+        for (char c: set){
+            System.out.println(c);
+        }
+    }
+}
+/*
+
+TreeSet <Charakter> -> set
+                 i++
+        012345678910
+s = "performance"
+a
+c
+e
+f
+m
+n
+o
+p
+r
+
+
+
+
+
+
+ */
