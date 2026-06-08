@@ -1,47 +1,64 @@
+import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class MainSetUse {
     public static void main(String[] args) {
-String s = "performance";
-printOriginalChars(s);
+        String s = "performance";
+        printOriginalChars(s);
         String s2 = "apple kiwi banana melon grape apple lemon cherry melon";
-        printWorldReverseOrder(s2);
+        printWorldsReverseOrder(s2);
     }
-    public static void printWorldReverseOrder(String s){
+    public static void printWorldsReverseOrder(String s){
+        ComparatorStringReverse comp = new ComparatorStringReverse();
         TreeSet<String> set = new TreeSet<>();
         String[] ar = s.split(" ");
         for (String st: ar){
             set.add(st);
         }
-        Object[] arr = set.toArray();
-        for (int i = arr.length-1;i>=0;i--){
-            System.out.println(arr[i]);
-
+        Set<String> rset =  set.descendingSet();
+        for (String str: rset){
+            System.out.println(str);
         }
+
+//        Iterator<String> iter =
+//                set.descendingIterator();
+//        while (iter.hasNext() == true){
+//            System.out.println(iter.next());
+//        }
+
+//        for (String str: set){
+//            System.out.println(str);
+//        }
+
+        //////////////////////////////////////////
+//           Object[] arr =  set.toArray();
+//        for (int i = arr.length-1;i>=0;i--){
+//            System.out.println(arr[i]);
+//        }
     }
     /*
     s = "apple kiwi banana melon grape apple lemon cherry melon"
     s.split(" ");
-        0    1     2       3       4              8
-    ar -> [apple][kiwi][banana][melon][grape][......][melon]
-                                                   --i
-             0      1       2       3     4      5      6
-    arr-> [apple][banana][cherry][grape][kiwi][lemon][melon]
-     melon
-     lemon
-     kiwi
-     grape
-     cherry
-     banana
-     apple
+           0      1     2       3      4            8
+   ar-> [apple][kiwi][banana][melon][grape][....][melon]
+                                 --i
+           0       1     3        4      5     6     7
+   arr->[apple][banana][cherry][grape][kiwi][lemon][melon]
+   melon
+   lemon
+   kiwi
+   grape
+   cherry
+   banana
+   apple
      */
+
     public static void printOriginalChars(String s){
         TreeSet<Character> set = new TreeSet<>();
         for (int i = 0; i < s.length();i ++){
             char sym = s.charAt(i);
             set.add(sym);
-
-
         }
         for (char c: set){
             System.out.println(c);
@@ -50,9 +67,9 @@ printOriginalChars(s);
 }
 /*
 
-TreeSet <Charakter> -> set
-                 i++
-        012345678910
+TreeSet <Character> set
+        i++
+     012345678910
 s = "performance"
 a
 c
@@ -63,10 +80,4 @@ n
 o
 p
 r
-
-
-
-
-
-
- */
+*/

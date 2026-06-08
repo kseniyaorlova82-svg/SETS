@@ -16,7 +16,8 @@ public class MainJavaSets {
         System.out.println(s6.hashCode());
         String s7 = new String("lemon");
         System.out.println(s7.hashCode());
-        HashSet<String> hset= new HashSet<>();
+
+        HashSet<String> hset = new HashSet<>();
         hset.add(s2);
         hset.add(s1);
         hset.add(s3);
@@ -29,9 +30,9 @@ public class MainJavaSets {
         //[banana, apple, kiwi, lemon, grape, melon]
         //[banana, apple, kiwi, lemon, grape, melon]
 
-        LinkedHashSet<String> dset= new LinkedHashSet<>();
-        dset.add(s2);
+        LinkedHashSet<String> dset = new LinkedHashSet<>();
         dset.add(s1);
+        dset.add(s2);
         dset.add(s3);
         dset.add(s4);
         dset.add(s5);
@@ -41,9 +42,9 @@ public class MainJavaSets {
         System.out.println(dset);
         //[apple, banana, kiwi, grape, melon, lemon]
 
-        TreeSet<String> tset= new TreeSet<>();
-        tset.add(s2);
+        TreeSet<String> tset = new TreeSet<>();
         tset.add(s1);
+        tset.add(s2);
         tset.add(s3);
         tset.add(s4);
         tset.add(s5);
@@ -55,15 +56,14 @@ public class MainJavaSets {
     }
 }
 /*
-                         Iterable
-                            |
-                           SET
-                     ______________
-                     /              \
-                HashSet           TreeSet
-                   /
-             LinkedHashSet
-
+                        Iterable
+                          |
+                        Set
+                      _______
+               |                  |
+            HashSet            TreeSet
+               |
+            LinkedHashSet
 
 
 
